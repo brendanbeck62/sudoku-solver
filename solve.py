@@ -5,7 +5,7 @@ from board import Board
 def solve(board):
   print("Solving")
 
-  print("1 is valid at 0,0: ", board.validate_placement(0, 0, 1))
+  print("2 is valid at 6,7: ", board.validate_placement(6, 7, 2))
 
 
 # procedure backtrack(c) is

@@ -21,18 +21,24 @@ class Board:
     self.board[0][0] = random.randint(1,9)
     self.board[3][0] = random.randint(1,9)
 
-  def validate_placement(self, row, col, val):
-    return self.__verify_row(row, val) and self.__verify_col(col, val) and self.__verify_square(row, col, val)
+  def validate_placement(self, col, row, val):
+    return self.__verify_row(row, val) and self.__verify_col(col, val) and self.__verify_square(col, row, val)
 
   def __verify_row(self, row, val):
     return val not in self.board[row]
 
   def __verify_col(self, col, val):
-    return val not in self.board[col]
+    # little list comprehension to get the col
+    return val not in [x[col] for x in self.board]
 
-  # TODO: Verify square
-  def __verify_square(self, row, col, val):
-    return 0
+  def __verify_square(self, col, row, val):
+
+    for i in range(self.NUM_ROWS // 3):
+      for j in range(self.NUM_COLS // 3):
+        # enumerate the square a cell is located, horizontal first
+        if val == self.board[((row // 3) * self.NUM_ROWS // 3) + i][((col // 3) * self.NUM_COLS // 3) + j]:
+          return False
+    return True
 
 
 
