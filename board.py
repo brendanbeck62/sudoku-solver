@@ -32,7 +32,6 @@ class Board:
     return val not in [x[col] for x in self.board]
 
   def __verify_square(self, col, row, val):
-
     for i in range(self.NUM_ROWS // 3):
       for j in range(self.NUM_COLS // 3):
         # enumerate the square a cell is located, horizontal first
