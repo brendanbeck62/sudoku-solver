@@ -12,7 +12,7 @@ class Board:
 
   def __str__(self):
     # TODO: add lines to the board
-    return '\n'.join([''.join(['{:4}'.format(item) for item in row]) for row in self.board])
+    return '\n'.join([''.join(['{:4}'.format(item) for item in row]) for row in self.board]) + '\n\n'
 
   def random_board(self,numStarters=1):
     # TODO: make this actually functional
@@ -39,6 +39,8 @@ class Board:
           return False
     return True
 
+  def is_solved(self):
+    return (any(0 not in x for x in self.board))
 
 
 

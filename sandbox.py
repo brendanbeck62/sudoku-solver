@@ -16,13 +16,7 @@ starting_board_easy = [
 print("=============== root ===============")
 print('\n'.join([''.join(['{:4}'.format(item) for item in row]) for row in starting_board_easy]))
 
-def __verify_square(self, col, row, val):
-  for i in range(self.NUM_ROWS // 3):
-    for j in range(self.NUM_COLS // 3):
-      # enumerate the square a cell is located, horizontal first
-      if val == self.board[((row // 3) * self.NUM_ROWS // 3) + i][((col // 3) * self.NUM_COLS // 3) + j]:
-        return False
-  return True
+print(any(0 in x for x in starting_board_easy))
 
 
 col = 6
