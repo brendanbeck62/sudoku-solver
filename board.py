@@ -12,7 +12,7 @@ class Board:
 
   def __str__(self):
     # TODO: add lines to the board
-    return '\n'.join([''.join(['{:4}'.format(item) for item in row]) for row in self.board]) + '\n\n'
+    return '\n'.join([''.join(['{:4}'.format(item) for item in row]) for row in self.board]) + '\n' + ("-"*40)
 
   def random_board(self,numStarters=1):
     # TODO: make this actually functional
@@ -21,8 +21,8 @@ class Board:
     self.board[0][0] = random.randint(1,9)
     self.board[3][0] = random.randint(1,9)
 
-  def validate_placement(self, col, row, val):
-    return self.__verify_row(row, val) and self.__verify_col(col, val) and self.__verify_square(col, row, val)
+  def validate_placement(self, row, col, val):
+    return self.__verify_row(row, val) and self.__verify_col(col, val) and self.__verify_square(row, col, val)
 
   def __verify_row(self, row, val):
     return val not in self.board[row]
@@ -31,7 +31,7 @@ class Board:
     # little list comprehension to get the col
     return val not in [x[col] for x in self.board]
 
-  def __verify_square(self, col, row, val):
+  def __verify_square(self, row, col, val):
     for i in range(self.NUM_ROWS // 3):
       for j in range(self.NUM_COLS // 3):
         # enumerate the square a cell is located, horizontal first

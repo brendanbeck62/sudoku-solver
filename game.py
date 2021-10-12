@@ -26,19 +26,21 @@ solved_board_easy = [
 def play():
   # Display init board
   board = Board(starting_board_easy)
-  print("-"*40)
-  print("STARTING BOARD")
-  print("-"*40)
-  print(board)
+  display_board(board, "STARTING BOARD")
 
   # solve
-  solve(board)
+  if (solve(board)):
+    # Display finished board
+    display_board(board, "SOLVED BOARD")
+  else:
+    print("Unsolvable")
 
-  # Display finished board
-  print("-"*40)
-  print("SOLVED BOARD")
-  print("-"*40)
-  print(board)
+
+def display_board(board, title):
+    print("="*40)
+    print(title)
+    print("="*40)
+    print(board)
 
 if __name__ == "__main__":
   play()

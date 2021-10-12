@@ -3,11 +3,8 @@ from board import Board
 
 
 def solve(board):
-  print("Solving...")
-
-  # print("2 is valid at 6,7: ", board.validate_placement(6, 7, 2))
-  # print("board is solved: ", board.is_solved())
-  print(backtrack(board, 0, 0))
+  print("Solving.....")
+  return backtrack(board, 0, 0)
 
 
 # procedure backtrack(c) is
@@ -18,35 +15,34 @@ def solve(board):
 #       backtrack(s)
 #       s ← next(P, s)
 
-def backtrack(board, curr_col, curr_row):
+def backtrack(board, curr_row, curr_col):
 
-  # base case
-  # if the final cell has a valid number, return true
-  if (curr_col == board.NUM_COLS and curr_row == board.NUM_ROWS - 1):
-    print("SOLVED!!!")
-    return True
-
-  if curr_col == board.NUM_COLS:
+  if curr_col == (board.NUM_COLS):
     curr_row += 1
     curr_col = 0
 
+  # base case
+  # the logic here is a little goofy, since +=1 the row before checking,
+  # this is the only time curr_row will equal the row size (last row is row size -1)
+  if (curr_row == board.NUM_ROWS):
+    return True
+
   # check if the cell is already filled, move on if so
-  if board.get_cell(curr_col, curr_row) > 0:
-    return backtrack(board, curr_col + 1, curr_row)
+  if board.get_cell(curr_row, curr_col) > 0:
+    return backtrack(board, curr_row, curr_col + 1)
 
   # try each number in the current cell, and if one one works add it to the board, and move to next cell
-  for num in range(1, 9, 1):
-    if (board.validate_placement(curr_col, curr_row, num)):
+  for num in range(1, 10, 1):
+    if (board.validate_placement(curr_row, curr_col, num)):
 
       # set it on the board
-      board.set_cell(curr_col, curr_row, num)
+      board.set_cell(curr_row, curr_col, num)
 
-
-      if backtrack(board, curr_col + 1, curr_row):
+      if backtrack(board, curr_row, curr_col + 1):
         return True
 
       # if no values work in this cell, set it back to empty
-      board.set_cell(curr_col, curr_row, 0)
+      board.set_cell(curr_row, curr_col, 0)
 
   # if the cell has no valid number, return false
   return False
