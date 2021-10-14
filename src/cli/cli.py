@@ -1,5 +1,16 @@
-from board import Board
-from solve import solve
+import sys
+import os
+
+current = os.path.dirname(os.path.realpath(__file__))
+parent = os.path.dirname(current)
+root = os.path.dirname(parent)
+sys.path.append(parent)
+
+
+from src.board import Board
+from logic import solve
+
+
 
 starting_board_easy = [
 [0,0,5,3,6,0,4,0,0],
@@ -25,22 +36,22 @@ solved_board_easy = [
 
 def play():
   # Display init board
-  board = Board(starting_board_easy)
-  display_board(board, "STARTING BOARD")
+  the_board = Board(starting_board_easy)
+  display_board(the_board, "STARTING BOARD")
 
   # solve
-  if (solve(board)):
+  if (solve(the_board)):
     # Display finished board
-    display_board(board, "SOLVED BOARD")
+    display_board(the_board, "SOLVED BOARD")
   else:
     print("Unsolvable")
 
 
-def display_board(board, title):
+def display_board(the_board, title):
     print("="*40)
     print(title)
     print("="*40)
-    print(board)
+    print(the_board)
 
 if __name__ == "__main__":
   play()
