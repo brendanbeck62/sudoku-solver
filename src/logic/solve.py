@@ -1,6 +1,4 @@
-from board import Board
-
-
+from board.board import Board
 
 def solve(board):
   print("Solving.....")
