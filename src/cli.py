@@ -1,16 +1,6 @@
-import sys
-import os
 
-current = os.path.dirname(os.path.realpath(__file__))
-parent = os.path.dirname(current)
-root = os.path.dirname(parent)
-sys.path.append(parent)
-
-
-from src.board import Board
-from logic import solve
-
-
+from logic.solve import solve
+from board.board import Board
 
 starting_board_easy = [
 [0,0,5,3,6,0,4,0,0],
