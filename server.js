@@ -4,21 +4,17 @@ const express = require('express');
 const url = require('url');
 const favicon = require('express-favicon');
 const fs = require('fs');
+require('dotenv').config();
 
 // Constants
-// TODO .env this badboy
-const PORT = 8080;
-const HOST = '0.0.0.0';
+const PORT = process.env.PORT || 8080;
 
-// App test
 const app = express();
 
 app.use(express.static(__dirname + '/public/static/'));
 app.use(favicon(__dirname + '/public/static/img/favicon.ico'));
 app.set('views', __dirname + '/public/views')
-
 app.set('view engine', 'ejs');
-
 
 app.get(/^(?!\/api\/)/, (req, res) => {
   let purl = url.parse(req.url, true);

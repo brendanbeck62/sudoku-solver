@@ -1,6 +1,12 @@
 # Sudoku Solver
 
 ## Usage
+
+### .env
+A .env file is required in the root of the project:
+```
+PORT =
+```
 ### CLI Entrypoint
 `python3 cli.py`
 
