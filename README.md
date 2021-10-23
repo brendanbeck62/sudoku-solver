@@ -5,7 +5,8 @@
 ### .env
 A .env file is required in the root of the project:
 ```
-PORT =
+NODE_PORT =
+FLASK_PORT =
 ```
 ### CLI Entrypoint
 `python3 cli.py`

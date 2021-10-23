@@ -4,10 +4,10 @@ const express = require('express');
 const url = require('url');
 const favicon = require('express-favicon');
 const fs = require('fs');
-require('dotenv').config();
+require('dotenv').config({ path: '../.env' });
 
 // Constants
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.NODE_PORT || 8000;
 
 const app = express();
 
