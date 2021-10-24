@@ -40,3 +40,6 @@ FLASK_ENV = 'development' (defaults to production, do not set in production)
 * [ ] Website
   * [ ] Hint system (Solve the requested square)
   * [ ] Decide whether placing a wrong number is alerted or not
+
+### Developement
+* [ ] cmake
