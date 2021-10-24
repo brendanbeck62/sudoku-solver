@@ -11,10 +11,10 @@
 
     ```sh
     $ cd server
-    $ python3.8 -m venv env
+    $ python3.9 -m venv env
     $ source env/bin/activate
-    (env)$ pip install -r requirements.txt
-    (env)$ flask run
+    (env)$ pip3 install -r requirements.txt
+    (env)$ python3 app.py
     ```
 
 1. Start the client-side Node server:
