@@ -1,0 +1,13 @@
+
+
+.board {
+  width: auto;
+  margin: auto;
+}
+
+input {
+  width: 30px;
+  text-align: center;
+  font-size: 32px;
+  border: none;
+}

@@ -16,6 +16,10 @@ app.config.from_object(__name__)
 # enable CORS
 CORS(app, resources={r'/*': {'origins': '*'}})
 
+@app.route('/', methods=['GET'])
+def home():
+  return jsonify('hello world!')
+
 # sanity check route
 @app.route('/ping', methods=['GET'])
 def ping_pong():
@@ -35,10 +39,6 @@ def board():
     [0,0,0,6,9,3,0,0,5],
     [0,0,3,0,8,0,0,0,0]]
   return jsonify(response_object)
-
-@app.route('/', methods=['GET'])
-def home():
-  return jsonify('hello world!')
 
 if __name__ == '__main__':
   app.run(port=PORT)
