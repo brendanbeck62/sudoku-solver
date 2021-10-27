@@ -1,8 +1,30 @@
-
+.body {
+  height: 100%;
+}
 
 .board {
   width: auto;
-  margin: auto;
+  margin: 20px auto;
+}
+
+td {
+  border: 1px solid #dee2e6;
+}
+
+td:first-child {
+  border-left:solid;
+}
+
+td:nth-child(3n) {
+  border-right:solid ;
+}
+
+tr:first-child {
+  border-top:solid;
+}
+
+tr:nth-child(3n) td {
+  border-bottom:solid ;
 }
 
 input {
