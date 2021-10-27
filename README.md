@@ -34,12 +34,5 @@ FLASK_ENV = 'development' (defaults to production, do not set in production)
 #### CLI Entrypoint
 `python3 cli.py`
 
-## Future Goals
-* [ ] Validate a starting board
-* [ ] Some sort of "solvable sudoku" API
-* [ ] Website
-  * [ ] Hint system (Solve the requested square)
-  * [ ] Decide whether placing a wrong number is alerted or not
-
-### Developement
-* [ ] cmake
+## Links
+[Trello](https://trello.com/c/1lH6BsPv/3-l)
